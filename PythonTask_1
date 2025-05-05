@@ -1,0 +1,91 @@
+    #Task set 1
+
+#program 1
+first_name = ("john")
+second_name = (" doe")
+print(first_name + second_name)
+
+#program 2
+Str = "Hello World"
+print(len(Str))
+
+#program 3
+word = "Python Programming"
+print(word[7:])
+
+#program 4
+Input = "Equilar"
+print(Input.upper())
+print(Input.lower())
+
+#program 5
+value = 1234
+values = "12a3"
+print(value.isdigit())
+print(values.isdigit())
+
+    #Task set 2
+
+#program 1
+num1 = 10 ; num2 = 5
+print(num1+num2)
+print(num1-num2)
+print(num1*num2)
+print(num1/num2)
+
+#program 2
+if num1%2==0:
+    print(f"Number {num1} is even.")
+else:
+    print(f"Number {num1} id odd.")
+
+#program 3
+radius = 5
+pi = 3.14159
+Area = pi * radius * radius
+print(Area)
+
+#program 4
+Roundoff = round(pi,2)
+print(Roundoff)
+
+#program 5
+ConvertString = "123"
+ConvertInt = 123
+
+#program 6
+intconvo = int(ConvertString)
+stringconvo = str(ConvertInt)
+floatconvo = float(ConvertInt)
+print(type(ConvertString))
+print(type(ConvertInt))
+print(type(intconvo))
+print(type(stringconvo))
+print(type(floatconvo))
+
+    #Task set 3
+
+#program 1
+num = 5 ; strnum = "10"
+print(num+int(strnum))
+
+#program 2
+strnum2 = "20"
+print(int(strnum) * int(strnum2))
+
+#program 3
+floatnum = 9.81
+print(int(floatnum))
+
+#program 4
+a = True
+b = False
+print(a)
+print(b)
+print(int(a))
+print(int(b))
+print(bool(int(a)))
+print(bool(int(b)))
+
+
+
