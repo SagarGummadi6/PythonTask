@@ -1,0 +1,56 @@
+# program 1
+Input = "hello"
+print(Input[::-1])
+
+# program 2
+word = "madam"
+result = bool(word == word[::-1])
+print(result)
+
+# program 3
+word2 = "scAtches"
+vovel = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
+vovels = 0
+consonants = 0
+for w in word2:
+    if w in vovel:
+        vovels += 1
+    else:
+        consonants += 1
+print(f"vovels: {vovels}")
+print(f"consonants: {consonants}")
+
+# program 4
+coun = {}
+for f in word2:
+    if f in coun:
+        coun[f] += 1
+    else:
+        coun[f] = 1
+print(coun)
+
+# program 5
+string = "today is nice"
+cleanstrint = string.replace(" ", "")
+print(cleanstrint)
+
+# program 6
+input6 = "I like Java"
+replaceinput = input6.replace("Java", "python")
+print(input6)
+print(replaceinput)
+
+#program 7
+input7 = "abc123def"
+newinput7 = "".join([digit for digit in input7 if digit.isdigit()])
+print(newinput7)
+
+#program 8
+Input8 = "Hello123"
+k=bool(Input8.isalpha())
+print(k)
+
+#program 9
+Input9 = "hello world"
+cap = Input9.title()
+print(cap)
