@@ -1,0 +1,118 @@
+        #Python Operators
+
+#program1:Area of rectangle
+def AreaOfRectangle(l,b):
+    area=l*b
+    return area
+input1 = input("Enter l and b with 1 space: ")
+l, b = map(float, input1.split())
+result = AreaOfRectangle(l, b)
+print("Area of the rectangle is:", result)
+
+#program1:Average
+a1 = int(input("Enter number 1: "))
+a2 = int(input("Enter number 2: "))
+a3 = int(input("Enter number 3: "))
+#print(type(a1))
+avg=(a1+a2+a3)/3
+print(avg)
+
+#program2:Greater Number
+num1=int(input("Enter 1st number: "))
+num2=int(input("Enter 2nd number: "))
+if num1>num2:
+    print(f"{num1} is bigger than {num2}")
+else:
+    print(f"{num2} is bigger than {num1}")
+
+#program2:Vote Eligible
+age=int(input("Enter your age: "))
+if age>=18:
+    print("you are eligible to vote.")
+else:
+    print("you are not eligible to vote.")
+
+#program3:Number in range
+num3=int(input("Enter a number to check if it is the range(10 to 50): "))
+if num3>10 and num3<50:
+    print(f"{num3} is in the range 10 to 50.")
+else:
+    print(f"{num3} is not in the range 10 to 50.")
+
+#program3:Validate login
+Username="john"
+Password=123
+username=input("Enter the username: ")
+password=int(input("Enter the password: "))
+if Username==username and Password==password:
+    print("Access Approved")
+else:
+    print("Access Denied")
+
+#program4:Assignment operator
+num4=10
+print(num4)
+num4+=2
+print(num4)
+num4-=4
+print(num4)
+num4*=2
+print(num4)
+num4/=2
+print(num4)
+
+#program5:Bitwise operator
+x=5
+y=3
+print("x & y= ",x & y)
+print("x | y= ",x | y)
+print("x ^ y= ",x ^ y)
+
+        #Python Lists
+
+#program1
+MovieList=["Alien","Dune","Argo","Titanic","Inception"]
+print(MovieList[0])
+print(MovieList[-1])
+
+#program2
+MovieList.append("Avatar")
+print(MovieList)
+MovieList[2]="Parasite"
+print(MovieList)
+
+#program3
+MovieList.sort()
+print(MovieList)
+list1=["one","two","three"]
+print(list1)
+list1.append("four")
+print(list1)
+list1.insert(-1,"five")
+print(list1)
+list1.remove("five")
+print(list1)
+list1.pop(0)
+print(list1)
+list1.reverse()
+print(list1)
+
+#program4
+MovieList.append("Shrek")
+for a in MovieList:
+    print(a)
+
+
+for movie in MovieList:
+    if movie.startswith("s"):
+        print(f"Movie stats with s: {movie}")
+
+#program5
+squares = [x**2 for x in range(1, 11)]
+print(squares)
+even=[]
+for x in squares:
+    if x%2==0:
+        even.append(x)
+print(even)
+
