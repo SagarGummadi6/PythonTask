@@ -1,0 +1,165 @@
+        #Tuples
+#program1
+input1= (3,4,5,3,4,5)
+def type(option):
+    match option:
+        case 1:
+            return [int(i) for i in input1]
+        case 2:
+            return [float(i) for i in input1]
+        case 3:
+            return [str(i) for i in input1]
+        case 4:
+            return list(input1)
+a=int(input("Enter 1:int, 2:float, 3:string, 4:list :-"))
+print(type(a))
+
+#program2
+my_tuple = ('apple', [10, 20], (1, 2, 3), 4.5, 'banana')
+print(my_tuple[1])
+print(my_tuple[2][1])
+
+#program3
+my_tuple3 = (1, 2, 3)
+list3=list(my_tuple3)
+print(my_tuple3)
+print(list3)
+list3[1] = 4
+my_tuple3=tuple(list3)
+print(my_tuple3)
+
+#program4
+coordinates = (45.4215, -75.6972)
+latitude= coordinates[0]
+longitude= coordinates[1]
+print(f"coordinates: {coordinates}")
+print(f"latitude: {latitude}")
+print(f"longitude: {longitude}")
+
+#program5
+Input5=(1, 2, 3)
+input5=(4, 5, 6)
+def combine(Tup1,Tup2):
+    add_Tup = Input5[0] + input5[0], Input5[1] + input5[1], Input5[2] + input5[2]
+    return add_Tup
+print(combine(Input5,input5))
+
+        #Sets
+
+#program1
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+print(A.union(B))
+print(A.intersection(B))
+print(A.difference(B))
+print(B.difference(A))
+print(A.symmetric_difference(B))
+
+#program2
+def is_member(item,s):
+    for a in s:
+        if a==item:
+            print(f"{item} is in {s}")
+            return True
+    print(f"{item} is not in {s}")
+    return False
+is_member(3,A)
+is_member(6,A)
+is_member(6,B)
+is_member(3,B)
+
+#program3
+values= [1, 2, 2, 3, 4, 4, 5]
+new=set(values)
+print(new)
+
+#program4
+setinput=input("Enter a sentence: ").lower()
+j=setinput.split(" ")
+new2=set(j)
+print(new2)
+
+#program5
+football={"jake","garry","cane"}
+basketball={"jake","garry","finn","kane"}
+tennis={"jake","finn","shawn","cole"}
+
+playsall=football & basketball & tennis
+
+playstwo=( (football & basketball) |
+    (football & tennis) |
+    (basketball & tennis) ) - (football & basketball & tennis)
+
+playsone= ( (football - basketball - tennis) |
+    (basketball - football - tennis) |
+    (tennis - football - basketball) )
+print(playsall)
+print(playstwo)
+print(playsone)
+
+        #Dictionaries
+
+#program1
+def count(text):
+    words = text.split()
+    count_dict = {}
+
+    for word in words:
+        if word in count_dict:
+            count_dict[word] += 1
+        else:
+            count_dict[word] = 1
+
+    return count_dict
+strings="apple banana apple orange banana apple"
+print(count(strings))
+
+#program2
+dict1 = {'a': 5, 'b': 3}
+dict2 = {'b': 2, 'c': 7}
+def merging(d1, d2):
+    for key, value in d2.items():
+        if key in d1:
+            d1[key] += value
+        else:
+            d1[key] = value
+    return d1
+print(merging(dict1,dict2))
+
+#program3
+dict3 = {'a': 1, 'b': 2, 'c': 1}
+def listing(l1):
+    temp={}
+    for key, value  in l1.items():
+        if value in temp:
+            temp[value].append(key)
+        else:
+            temp[value] = [key]
+    return temp
+print(listing(dict3))
+
+#program4
+dict4 = {'Alice': 25, 'Bob': 30, 'Charlie': 25, 'David': 30, 'Eva': 25}
+m=list(dict4.values())
+most_frequent = None
+max_count = 0
+
+for val in m:
+    count = m.count(val)
+    if count > max_count:
+        max_count = count
+        most_frequent = val
+print(most_frequent)
+
+#program5
+def match(keys, values):
+    return dict(zip(keys, values))
+
+
+keys = ['name', 'age', 'city']
+values = ['Alice', 25, 'New York']
+
+result = match(keys, values)
+print(result)
+
+
