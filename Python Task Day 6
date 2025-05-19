@@ -1,0 +1,220 @@
+        #Inheritance
+#1. Employee Hierarchy
+class Employee:
+    def __init__(self,salary):
+        self.salary=salary
+    def calculate_bonus(self):
+        return self.salary*0.10
+class Manager(Employee):
+    def calculate_bonus(self):
+        return self.salary*0.20
+class Developer(Employee):
+    def calculate_bonus(self):
+        return self.salary*0.18
+class Intern(Employee):
+    def calculate_bonus(self):
+        return self.salary*0.05
+print(f"Employee's Bonus: " , Employee(100000).calculate_bonus())
+print(f"Manager's Bonus: " , Manager(100000).calculate_bonus())
+print(f"Developer's Bonus: " , Developer(100000).calculate_bonus())
+print(f"Intern's Bonus: " , Intern(100000).calculate_bonus())
+#2. Vehicle Fleet
+class Vehicle:
+    def __init__(self,distance,time):
+        self.distance=distance
+        self.time=time
+    def get_speed(self):
+        return self.distance/self.time
+class Car(Vehicle):
+    def get_speed(self):
+        return self.distance / self.time + 30
+class Truck(Vehicle):
+    def get_speed(self):
+        return self.distance / self.time + 20
+class Motorcycle(Vehicle):
+    def get_speed(self):
+        return self.distance / self.time + 40
+print("vehicle speed: " , Vehicle(100,2).get_speed() , "km/h")
+print("Car speed: " , Car(100,2).get_speed() , "km/h")
+print("Truck speed: " , Truck(100,2).get_speed() , "km/h")
+print("Motorcycle speed: " , Motorcycle(100,2).get_speed() , "km/h")
+#3. Shape Area Calculator
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+class circle(Shape):
+    def __init__(self,radius):
+        self.pi=3.14
+        self.radius=radius
+    def area(self):
+        return self.pi*self.radius*self.radius
+class Rectangle(Shape):
+    def __init__(self,length,width):
+        self.length=length
+        self.width=width
+    def area(self):
+        return self.length*self.width
+class Triangle(Shape):
+    def __init__(self,base,height):
+        self.base=base
+        self.height=height
+    def area(self):
+        return 0.5*self.base*self.height
+print(circle(5).area())
+print(Rectangle(5,10).area())
+print(Triangle(10,15).area())
+
+        #Polymorphism
+
+#4. Notification System
+class Notification(ABC):
+    @abstractmethod
+    def send_notification(self):
+        pass
+
+class EmailNotification(Notification):
+    def send_notification(self):
+        print("Sending Email Notification...")
+        print("Received Email Notification.")
+class SMSNotification(Notification):
+    def send_notification(self):
+        print("Sending SMS Notification...")
+        print("Received SMS Notification.")
+class PushNotification(Notification):
+    def send_notification(self):
+        print("Sending Push Notification...")
+        print("Received Push Notification.")
+
+def notify_all(notifications):
+    for notification in notifications:
+        notification.send_notification()
+
+notifications = [
+    EmailNotification(),
+    SMSNotification(),
+    PushNotification()
+]
+
+notify_all(notifications)
+
+#5. Payment Gateway
+class PaymentMethod(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        pass
+class CreditCard(PaymentMethod):
+    def pay(self, amount):
+        return amount+20
+class PayPal(PaymentMethod):
+    def pay(self, amount):
+        return amount+30
+class CryptoCurrency(PaymentMethod):
+    def pay(self, amount):
+        return amount+40
+def checkout(payment_method: PaymentMethod, amount: int):
+    print("paying amount plus transaction fee",payment_method.pay(amount))
+
+checkout(CreditCard(), 100)
+checkout(PayPal(), 100)
+checkout(CryptoCurrency(), 100)
+
+#6. Zoo Animal Sounds
+class Animal(ABC):
+    @abstractmethod
+    def make_sound(self):
+        pass
+class Dog(Animal):
+    def make_sound(self):
+        print("Woof!")
+class Cat(Animal):
+    def make_sound(self):
+        print("Meow!")
+class Cow(Animal):
+    def make_sound(self):
+        print("Moo!")
+animals = [Dog(), Cat(), Cow()]
+
+for animal in animals:
+    animal.make_sound()
+
+        #Iterators
+#7. Custom Range Generator
+class MyRange:
+    def __init__(self, start, end):
+        self.now = start
+        self.end = end
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.now < self.end:
+            value = self.now
+            self.now += 1
+            return value
+        else:
+            raise StopIteration
+for num in MyRange(3, 7):
+    print(num)
+#8. Fibonacci Sequence Iterator
+class Fibonacci:
+    def __init__(self, limit):
+        self.limit = limit
+        self.a = 0
+        self.b = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.a > self.limit:
+            raise StopIteration
+        value = self.a
+        self.a, self.b = self.b, self.a + self.b
+        return value
+
+fib = Fibonacci(50)
+
+for num in fib:
+    print(num)
+#9. Reverse String Iterator
+class ReverseString:
+    def __init__(self, text):
+        self.text = text
+        self.index = len(text) - 1
+
+    def __iter__(self):
+
+        return self
+
+    def __next__(self):
+        if self.index >= 0:
+            char = self.text[self.index]
+            self.index -= 1
+            return char
+        else:
+
+            raise StopIteration
+
+reverse_iterator = ReverseString("Jackson")
+for char in reverse_iterator:
+    print(char,end="")
+#10. File Line Grouper
+class FileLineGrouper:
+    def __init__(self, file_path, group_size):
+        self.file_path = file_path
+        self.group_size = group_size
+
+    def __iter__(self):
+        with open(self.file_path) as f:
+            group = []
+            for line in f:
+                group.append(line.strip())
+                if len(group) == self.group_size:
+                    yield group
+                    group = []
+            if group:
+                yield group
