@@ -4,5 +4,5 @@ def func_b():
     print("Function B")
 
 def call_func_a():
-    from geometry.venv.main6 import func_a # delayed import to avoid circular import
+    from main import func_a # delaying import to avoid circular import
     func_a()
